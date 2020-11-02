@@ -1,0 +1,13 @@
+<% @users_unrequested.each do |user| %>
+<li>
+  Name: <%= user.name %>
+  
+  <span class="profile-link">
+    <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
+    <%= button_to  "Invite to friendship", request_friendship_friendships_path, 
+      params: { :friendship => { :friend => user, :user => current_user, :status => false}}, 
+    method: :post %>
+  </span>
+</li>
+
+<% end %>
